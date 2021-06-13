@@ -36,7 +36,7 @@ int partition(int *array, int left, int right, size_t size)
 		if (array[j] < pivot)
 		{
 			i = i + 1;
-			if (i != j)
+			if (array[i] != array[j])
 			{
 				_swap(&array[i], &array[j]);
 				print_array(array, size);
