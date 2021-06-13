@@ -43,7 +43,7 @@ int partition(int *array, int left, int right, size_t size)
 			}
 		}
 	}
-	if ((i + 1) != right)
+	if (array[i + 1] != array[right])
 	{
 		_swap(&array[i + 1], &array[right]);
 		print_array(array, size);
