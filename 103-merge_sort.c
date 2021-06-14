@@ -46,8 +46,6 @@ void merge(int *array, int *helper, int low, int middle, int high)
 	}
 	printf("[Done]: ");
 	print_array(array + current_print, high + 1 - low);
-	/* printf("after merge = "); */
-	/* print_array(array, size); */
 }
 
 /**
