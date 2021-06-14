@@ -41,11 +41,8 @@ void heapify(int *array, size_t size, int i, size_t print_size)
 	if (head != i)
 	{
 		/* if the value is the same, don't swap */
-		if (array[i] != array[head])
-		{
-			_swap(&array[i], &array[head]);
-			print_array(array, print_size);
-		}
+		_swap(&array[i], &array[head]);
+		print_array(array, print_size);
 		/* we need to heapify all the tree again */
 		heapify(array, size, head, print_size);
 	}
@@ -75,11 +72,13 @@ void heap_sort(int *array, size_t size)
 	/* extract each element from heap */
 	for (i = size - 1; i >= 0; i--)
 	{
-		if (array[0] != array[i])
+		/* if the index is different from 0 */
+		/* if it is equals value, we need to change */
+		if (i != 0)
 		{
 			_swap(&array[0], &array[i]);
 			print_array(array, print_size);
+			heapify(array, i, 0, print_size); /* we need to heapify again in 0 */
 		}
-		heapify(array, i, 0, print_size); /* we need to heapify again in 0 */
 	}
 }
