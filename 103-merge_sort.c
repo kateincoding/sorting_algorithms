@@ -94,4 +94,5 @@ void merge_sort(int *array, size_t size)
 		helper[i] = array[i];
 
 	recursive_merge_sort(array, helper, 0, size - 1);
+	free(helper);
 }
