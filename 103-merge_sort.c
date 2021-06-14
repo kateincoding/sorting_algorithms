@@ -28,21 +28,19 @@ void merge(int *array, int *helper, int low, int middle, int high)
 	/* compare between left part and right part */
 	/* copy the sorted order in the array */
 	current_print = current;
-	while (helperLeft <= middle && helperRight <= high)
+	while (helperLeft <= middle || helperRight <= high)
 	{
-		if (helper[helperLeft] <= helper[helperRight])
+		if (helperLeft <= middle && helperRight <= high)
 		{
-			array[current] = helper[helperLeft];
-			array[current + 1] = helper[helperRight];
-			helperLeft++;
+			if (helper[helperLeft] <= helper[helperRight])
+				array[current] = helper[helperLeft], current++, helperLeft++;
+			else
+				array[current] = helper[helperRight], current++, helperRight++;
 		}
+		else if (helperLeft >= middle && helperRight <= high)
+			array[current] = helper[helperRight], current++, helperRight++;
 		else
-		{
-			array[current] = helper[helperRight];
-			array[current + 1] = helper[helperLeft];
-			helperRight++;
-		}
-		current++;
+			array[current] = helper[helperLeft], current++, helperLeft++;
 	}
 	printf("[Done]: ");
 	print_array(array + current_print, high + 1 - low);
