@@ -49,7 +49,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *head, *reverse_head, *tmp;
 
-	if (!(*list) || !(list) || !(*list)->next)
+	if (!list || !(*list) || (!((*list)->prev) && !((*list)->next)))
 		return;
 
 	head = *list;
