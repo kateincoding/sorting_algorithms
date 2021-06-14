@@ -82,16 +82,13 @@ void recursive_merge_sort(int *array, int *helper, int low, int high)
  */
 void merge_sort(int *array, size_t size)
 {
-	int *helper, i = 0;
+	int *helper;
 
 	if (!array || size < 2)
 		return;
 	helper = malloc(sizeof(int) * size);
 	if (!helper)
 		return;
-
-	for (i = 0; i < (int)size; i++)
-		helper[i] = array[i];
 
 	recursive_merge_sort(array, helper, 0, size - 1);
 	free(helper);
