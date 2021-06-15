@@ -15,17 +15,13 @@
 void recursive_radix_sort(int *array, int *result,
 						int *index, size_t size, int lsd)
 {
-	size_t i;
-	int idx_start, idx_index;
+	int i, idx_start, idx_index;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < (int)size; i++)
 		index[i] = 0;
 
-	for (i = 0; i < size; i++)
-		result[i] = array[i];
-
 	/* count the repetitions of digits in nbr and store in index */
-	for (i = 0; i < size; i++)
+	for (i = 0; i < (int)size; i++)
 		index[(array[i] / lsd) % 10] += 1;
 
 	/* The final of recursion is when the position-digit of all nbr == 0 */
@@ -37,17 +33,24 @@ void recursive_radix_sort(int *array, int *result,
 	for (i = 1; i < 10; i++)
 		index[i] += index[i - 1];
 
+	for (i = 9; i > 0; i--)
+		index[i] = index[i - 1];
+	index[0] = 0;
+
 	/* now let's have a middle sorted array */
-	for (i = size - 1; (int)i >= 0; i--)
+	for (i = 0; i < (int)size; i++)
 	{
 		/* check the start position of array[i] with index table */
-		idx_index = (result[i] / lsd) % 10;
-		idx_start = index[idx_index] - 1;
+		idx_index = (array[i] / lsd) % 10;
+		idx_start = index[idx_index];
 		/* assign in the partial sorted array */
-		array[idx_start] = result[i];
+		result[idx_start] = array[i];
 		/* final position decrease 1 because we already assign the value */
-		index[idx_index]--;
+		index[idx_index]++;
 	}
+	/* copy the result to the array and print it */
+	for (i = 0; i < (int)size; i++)
+		array[i] = result[i];
 	print_array(array, size);
 	recursive_radix_sort(array, result, index, size, lsd * 10);
 }
