@@ -5,15 +5,15 @@
  * the number of do arecursion is linear depend with
  * the #digits of max number
  * @array: unsorted array of integer
+ * @result: possible result
  * @size: size of the array
  * @lsd: least significant digit (1 last: 1, 2nd last: 1*10, 3: 1*10*10)
  *
  * Return: void
  */
-void recursive_radix_sort(int *array, size_t size, int lsd)
+void recursive_radix_sort(int *array, int *result, size_t size, int lsd)
 {
 	int index[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	int result[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	int i, idx_start, idx_index;
 
 	/* count the repetitions of digits in nbr and store in index */
@@ -49,7 +49,7 @@ void recursive_radix_sort(int *array, size_t size, int lsd)
 		array[i] = result[i];
 	print_array(array, size);
 
-	recursive_radix_sort(array, size, lsd * 10);
+	recursive_radix_sort(array, result, size, lsd * 10);
 }
 
 /**
@@ -66,10 +66,15 @@ void recursive_radix_sort(int *array, size_t size, int lsd)
  */
 void radix_sort(int *array, size_t size)
 {
+	int *result;
+
 	if (size <= 1)
 		return;
-
+	result = malloc(sizeof(int) * size);
+	if (!result)
+		return;
 	/* one way, we will find how many time sort = #digits of max_number */
 	/* Second way,recursion it is helpfull if the array is bigger */
-	recursive_radix_sort(array, size, 1);
+	recursive_radix_sort(array, result, size, 1);
+	free(result);
 }
