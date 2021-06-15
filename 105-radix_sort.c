@@ -71,7 +71,7 @@ void radix_sort(int *array, size_t size)
 {
 	int *result, *index_table;
 
-	if (size <= 1)
+	if (!array || size <= 1)
 		return;
 	result = malloc(sizeof(int) * size);
 	if (!result)
