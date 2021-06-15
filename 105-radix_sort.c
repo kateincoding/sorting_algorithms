@@ -6,19 +6,15 @@
  * the #digits of max number
  * @array: unsorted array of integer
  * @result: possible result
- * @index: index table where we have the counting numbers of the array
  * @size: size of the array
  * @lsd: least significant digit (1 last: 1, 2nd last: 1*10, 3: 1*10*10)
  *
  * Return: void
  */
-void recursive_radix_sort(int *array, int *result,
-						int *index, size_t size, int lsd)
+void recursive_radix_sort(int *array, int *result, size_t size, int lsd)
 {
 	int i, idx_start, idx_index;
-
-	for (i = 0; i < (int)size; i++)
-		index[i] = 0;
+	int index[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 	/* count the repetitions of digits in nbr and store in index */
 	for (i = 0; i < (int)size; i++)
@@ -52,7 +48,7 @@ void recursive_radix_sort(int *array, int *result,
 	for (i = 0; i < (int)size; i++)
 		array[i] = result[i];
 	print_array(array, size);
-	recursive_radix_sort(array, result, index, size, lsd * 10);
+	recursive_radix_sort(array, result, size, lsd * 10);
 }
 
 /**
@@ -69,22 +65,15 @@ void recursive_radix_sort(int *array, int *result,
  */
 void radix_sort(int *array, size_t size)
 {
-	int *result, *index_table;
+	int *result;
 
 	if (!array || size <= 1)
 		return;
 	result = malloc(sizeof(int) * size);
 	if (!result)
 		return;
-	index_table = malloc(sizeof(int) * 10);
-	if (!index_table)
-	{
-		free(result);
-		return;
-	}
 	/* one way, we will find how many time sort = #digits of max_number */
 	/* Second way,recursion it is helpfull if the array is bigger */
-	recursive_radix_sort(array, result, index_table, size, 1);
+	recursive_radix_sort(array, result, size, 1);
 	free(result);
-	free(index_table);
 }
