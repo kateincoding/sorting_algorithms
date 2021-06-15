@@ -15,16 +15,17 @@
 void recursive_radix_sort(int *array, int *result,
 						int *index, size_t size, int lsd)
 {
-	int i, idx_start, idx_index;
+	size_t i;
+	int idx_start, idx_index;
 
-	for (i = 0; i < (int)size; i++)
+	for (i = 0; i < size; i++)
 		index[i] = 0;
 
-	for (i = 0; i < (int)size; i++)
+	for (i = 0; i < size; i++)
 		result[i] = array[i];
 
 	/* count the repetitions of digits in nbr and store in index */
-	for (i = 0; i < (int)size; i++)
+	for (i = 0; i < size; i++)
 		index[(array[i] / lsd) % 10] += 1;
 
 	/* The final of recursion is when the position-digit of all nbr == 0 */
@@ -37,7 +38,7 @@ void recursive_radix_sort(int *array, int *result,
 		index[i] += index[i - 1];
 
 	/* now let's have a middle sorted array */
-	for (i = (int)size - 1; i >= 0; i--)
+	for (i = size - 1; (int)i >= 0; i--)
 	{
 		/* check the start position of array[i] with index table */
 		idx_index = (result[i] / lsd) % 10;
