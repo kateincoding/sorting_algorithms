@@ -25,8 +25,8 @@ void recursive_radix_sort(int *array, int *result,
 		index[(array[i] / lsd) % 10] += 1;
 
 	/* The final of recursion is when the position-digit of all nbr == 0 */
-	if (index[0] == (int)size)
-		return;
+	/* if (index[0] == (int)size) */
+	/*	return; */
 
 	/* we can work in here building a hash table or hash array */
 	/* or work like insertion, let's calculate the index and set */
@@ -52,7 +52,7 @@ void recursive_radix_sort(int *array, int *result,
 	for (i = 0; i < (int)size; i++)
 		array[i] = result[i];
 	print_array(array, size);
-	recursive_radix_sort(array, result, index, size, lsd * 10);
+	/* recursive_radix_sort(array, result, index, size, lsd * 10); */
 }
 
 /**
@@ -69,7 +69,7 @@ void recursive_radix_sort(int *array, int *result,
  */
 void radix_sort(int *array, size_t size)
 {
-	int *result, *index_table;
+	int *result, *index_table, max = 0, i;
 
 	if (!array || size <= 1)
 		return;
@@ -84,7 +84,11 @@ void radix_sort(int *array, size_t size)
 	}
 	/* one way, we will find how many time sort = #digits of max_number */
 	/* Second way,recursion it is helpfull if the array is bigger */
-	recursive_radix_sort(array, result, index_table, size, 1);
+	for (i = 0; i < (int)size; i++)
+		if (array[i] > max)
+			max = array[i];
+	for (i = 1; ((max / (i)) % 10) > 0 ; i *= 10)
+		recursive_radix_sort(array, result, index_table, size, 1 * i);
 	free(result);
 	free(index_table);
 }
