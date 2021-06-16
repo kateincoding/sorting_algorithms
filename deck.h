@@ -1,6 +1,14 @@
 #ifndef DECK_H
 #define DECK_H
 
+/**
+ * enum kind_e - struct for card types enum
+ *
+ * @SPADE: Spade type
+ * @HEART: Heart type
+ * @CLUB: Club type
+ * @DIAMOND: Diamond types
+ */
 typedef enum kind_e
 {
 	SPADE = 0,
