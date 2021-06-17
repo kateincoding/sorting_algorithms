@@ -4,21 +4,21 @@ One of the bests project that I made! If you love algorithms and computer scienc
 
 ![BigO_img](https://cdn-media-1.freecodecamp.org/images/1*KfZYFUT2OKfjekJlCeYvuQ.jpeg)
 
-# Learning Objectives
+## Learning Objectives
 
 * At least four different sorting algorithms
 * What is the Big O notation, and how to evaluate the time complexity of an algorithm
 * How to select the best sorting algorithm for a given input
 * What is a stable sorting algorithm
 
-# Resources
+## Resources
 
 * Sorting algorithm
 * Big O notation
 * Sorting algorithms animations
 * 15 sorting algorithms in 6 minutes (WARNING: The following video can trigger seizure/epilepsy. It is not required for the project, as it is only a funny visualization of different sorting algorithms)
 
-# Big O complexity in differents sorting algorithms:
+## Big O complexity in differents sorting algorithms:
 
 ![Sorting_BigO_complexity](https://www.bigocheatsheet.com/img/big-o-cheat-sheet-poster.png)
 
