@@ -1,4 +1,4 @@
-# sorting_algorithms
+# Big O and Sorting Algorithms Project
 Project about sorting algorithms and Big O
 One of the bests project that I made! If you love algorithms and computer science! I should recommend to consider do it!
 
