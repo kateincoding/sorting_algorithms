@@ -1,5 +1,5 @@
 # Big O and Sorting Algorithms Project
-Project about sorting algorithms and Big O
+Project about sorting algorithms and Big O (200%)
 One of the bests project that I made! If you love algorithms and computer science! I should recommend to consider do it!
 
 ![BigO_img](https://cdn-media-1.freecodecamp.org/images/1*KfZYFUT2OKfjekJlCeYvuQ.jpeg)
@@ -51,5 +51,5 @@ The result og Big O calculation in the next exercises will be in this order:
 8|[Heap sort](104-heap_sort.c)|[BigO for heap sort](104-O)|Prototype: void heap_sort(int *array, size_t size); You must implement the sift-down heap sort algorithm ; You’re expected to print the array after each time you swap two elements (See example below)
 9|[Radix sort](105-radix_sort.c)| |Prototype: void radix_sort(int *array, size_t size); You must implement the LSD radix sort algorithm ; You can assume that array will contain only numbers >= 0; You are allowed to use malloc and free for this task ; You’re expected to print the array each time you increase your significant digit
 10|[Bitonic sort](106-bitonic_sort.c)|[BigO for Bitonic Sort](106-O)|Prototype: void bitonic_sort(int *array, size_t size); You can assume that size will be equal to 2^k, where k >= 0 (when array is not NULL …) ; You are allowed to use printf ; You’re expected to print the array each time you swap two elements (See example below) ; Output: see example
-11|[Quick Sort - Hoare Partition scheme](107-quick_sort_hoare.c)|[BigO] (107-O)|Prototype: void quick_sort_hoare(int *array, size_t size); You must implement the Hoare partition scheme. ; The pivot should always be the last element of the partition being sorted. ; You’re expected to print the array after each time you swap two elements
+11|[Quick Sort - Hoare Partition scheme](107-quick_sort_hoare.c)|[BigO](107-O)|Prototype: void quick_sort_hoare(int *array, size_t size); You must implement the Hoare partition scheme. ; The pivot should always be the last element of the partition being sorted. ; You’re expected to print the array after each time you swap two elements
 12|[Dealer - Sort a deck of cards](1000-sort_deck.c), [deck.h](deck.h)| |Write a function that sorts a deck of cards. Prototype: void sort_deck(deck_node_t **deck); You are allowed to use the C standard library function qsort or any other sorting algorithm, I use cocktail algorithm to implement the solution in this problem!
